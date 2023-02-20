@@ -2,8 +2,8 @@ class Personaje:
     
     #atrivutos
     especie="Humano"
-    nombre="cabo"
-    altura:"2.70"
+    nombre="jef"
+    altura="2.70"
 
     #metodos
     
@@ -20,4 +20,5 @@ class Personaje:
         cargador=10
         cargador=cargador + municiones
         print("el arma tiene " + cargador + " balas")
+        
         
