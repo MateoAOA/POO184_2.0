@@ -6,8 +6,12 @@ soldado = Personaje()
 
 #usar atrivutos
 
-print("el personaje se llama: "+ soldado.nombre)
-print("especie: "+ soldado.especie)
-print("altura: "+ soldado.altura)
+print("Nombre: "+ soldado.nombre)
+print("Especie: "+ soldado.especie)
+print("Altura: "+ soldado.altura)
 
+#usar metodos
 
+soldado.correr(True)
+soldado.lanzar_granadas()
+soldado.recargarArma(87)
