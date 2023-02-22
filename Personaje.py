@@ -1,9 +1,12 @@
 class Personaje:
     
-    #atrivutos
-    especie="Humano"
-    nombre="jef"
-    altura="1.75"
+    #definimos el constructor
+    def __init__(self,esp,nom,alt):
+    
+        #atrivutos
+        self.especie= esp
+        self.nombre= nom
+        self.altura= alt
 
     #metodos
     
@@ -11,7 +14,7 @@ class Personaje:
         if(status):
             print("el personaje " + self.nombre + " esta corriendo")
         else:
-            print("el personaje " + self.nombre + " esta detuvo")
+            print("el personaje " + self.nombre + " se detuvo")
     
     def lanzar_granadas(self):
         print("el personaje " + self.nombre + " lanzo una granada")
