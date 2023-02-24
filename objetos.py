@@ -21,21 +21,26 @@ soldado = Personaje(especieS,nombreS,AlturaS)
 enemigo = Personaje(especieE,nombreE,AlturaE)
 
 #usar atrivutos y metods
+
+soldado.setNombre("jef")
+
+
 print("")
 print("####### Objeto Soldado #")
-print("Nombre: "+ soldado.nombre)
-print("Especie: "+ soldado.especie)
-print("Altura: "+ str(soldado.altura))
+print("Nombre: "+ soldado.getNombre())
+print("Especie: "+ soldado.getEspecie())
+print("Altura: "+ str(soldado.getAltura()))
 
 soldado.correr(True)
 soldado.lanzar_granadas()
 soldado.recargarArma(recargaS)
+#soldado.__pensar()
 
 print("")
 print("####### Datos Enemigo #")
-print("Nombre: "+ enemigo.nombre)
-print("Especie: "+ enemigo.especie)
-print("Altura: "+ str(enemigo.altura))
+print("Nombre: "+ enemigo.getNombre())
+print("Especie: "+ enemigo.getEspecie())
+print("Altura: "+ str(enemigo.getAltura()))
 
 enemigo.correr(False)
 enemigo.lanzar_granadas()
