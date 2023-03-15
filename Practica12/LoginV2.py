@@ -6,6 +6,7 @@ def Mensaje():
     pas= password.get()
     validador.Mensaje(cor, pas)
 
+
 #1.- instanciamos el objeto ventana
 ventana= Tk()
 ventana.title("Ejemplo de 3 Frames")
