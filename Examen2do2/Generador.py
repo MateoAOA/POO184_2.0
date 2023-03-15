@@ -1,42 +1,44 @@
 from tkinter import Tk, Button, Frame, messagebox, Label, Entry
 from Usuario import *
+import random
 #solicitar datos
 
-ven= Tk()
-ven.title("Sistma UPQ")
-ven.geometry("600x400")
+ventana= Tk()
+ventana.title("Ejemplo de 3 Frames")
+ventana.geometry("1000x600")
 
-
-titulo= Label(ven,text="Generador de Matriculas", font=("Berlin Sans FB Demi",50),bg="#660FC3")
+titulo= Label(ventana,text="LOGIN", font=("Berlin Sans FB Demi",20),bg="#660FC3")
 titulo.pack()
 
-ind_nombre = Label(ven, text="Coloque su nombre:")
-ind_nombre.grid(row=4, column=0, sticky="w")
+iNombre= Label(ventana,text="Escribe tu nombre", font=("Berlin Sans FB Demi",20),bg="#660FC3")
+iNombre.pack()
+Nombre= Entry(ventana, text="Nombre: ", font=("Berlin Sans FB Demi",20), bg="#A170D6")
+Nombre.pack()
 
-col_nombre = Entry(ven, font=("Berlin Sans FB Demi",15), width=25)
-col_nombre.grid(row=5, column=0)
+iApellido_Paterno= Label(ventana,text="Escribe tu Apellido paterno", font=("Berlin Sans FB Demi",20),bg="#660FC3")
+iApellido_Paterno.pack()
+Apellido_Paterno= Entry(ventana, font=("Berlin Sans FB Demi",20), bg="#A170D6")
+Apellido_Paterno.pack()
 
-ind_apellidop = Label(ven, text="Coloque su nombre:")
-ind_apellidop.grid(row=6, column=1, sticky="w")
+iApellido_Materno= Label(ventana,text="Escribe tu Apellido materno", font=("Berlin Sans FB Demi",20),bg="#660FC3")
+iApellido_Materno.pack()
+Apellido_Materno= Entry(ventana, font=("Berlin Sans FB Demi",20), bg="#A170D6")
+Apellido_Materno.pack()
 
-col_apellidom = Entry(ven, font=("Berlin Sans FB Demi",15), width=25)
-col_apellidom.grid(row=7, column=1)
+iFecha_Nacimento= Label(ventana,text="Escribe tu fecha de nacimiento:", font=("Berlin Sans FB Demi",20),bg="#660FC3")
+iFecha_Nacimento.pack()
+Fecha_Nacimento= Entry(ventana, font=("Berlin Sans FB Demi",20), bg="#A170D6")
+Fecha_Nacimento.pack()
 
-
-print("")
-print("#Datos #")
-Nombre= input("Escibir tu nombre: ")
-Apellido_Paterno= input("Escibir tu apellido paterno: ")
-Apellido_Materno= input("Escibir tu apellido materno: ")
-Fecha_Nacimento= input("Escribe tu fecha de nacimiento: ")
-Carrera= input("Escribe tu carrera: ")
+iCarrera= Label(ventana,text="Escribe tu carrera:", font=("Berlin Sans FB Demi",20),bg="#660FC3")
+iCarrera.pack()
+Carrera= Entry(ventana, font=("Berlin Sans FB Demi",20), bg="#A170D6")
+Carrera.pack()
 
 #crear objeto de la clase personaje
-
-matricula = Usuario(Nombre, Apellido_Paterno, Apellido_Materno, Fecha_Nacimento, Carrera)
+matricula = Usuario(random(Nombre, Apellido_Paterno, Apellido_Materno, Fecha_Nacimento, Carrera))
 
 #usar atrivutos y metods
-
 matricula.setNombre("Matricula Escolar")
 
 
@@ -44,5 +46,8 @@ print("")
 print("####### Matricula Generada #")
 matricula.generar()
 
+
+
+
 #llamamos al main
-ven.mainloop()
+ventana.mainloop()

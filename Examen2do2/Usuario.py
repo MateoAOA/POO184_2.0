@@ -1,7 +1,9 @@
-
-
-
+from tkinter import Tk, Label, Entry
+import random
+import Generador
 class Usuario:
+
+    
     
     #definimos el constructor
     def __init__(self,nom,ap,am,nac,car):
@@ -17,8 +19,7 @@ class Usuario:
     #metodos
     
     def generar (self):
-        print(self.__nombre, self.__apellidoP, self.__apellidoM, self.__nacimiento, self.__carrera )
-    
+        matricula = random(self.__nombre)
       
         
     #gets y sets
