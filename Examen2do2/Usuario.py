@@ -1,4 +1,4 @@
-from tkinter import Tk, Label, Entry
+from tkinter import Tk, Label, Entry, messagebox
 import random
 import Generador
 class Usuario:
@@ -18,8 +18,14 @@ class Usuario:
 
     #metodos
     
-    def generar (self):
-        matricula = random(self.__nombre)
+    def generar_matricula(self):
+    
+    matricula =""
+    matricula= self
+    
+    
+   
+
       
         
     #gets y sets

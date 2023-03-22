@@ -47,3 +47,29 @@ boton.place(x=480, y=140)
 
 #llamamos al main (sin esto no imprime la ventana)
 ventana.mainloop()
+
+
+
+
+
+# Función para generar un número aleatorio
+def generar_numero():
+    numero = random.randint(1, 100)
+    label_numero.config(text="Número generado: " + str(numero))
+
+# Crear un botón que genere un número aleatorio
+boton_generar = tk.Button(root, text="Generar número", command=generar_numero)
+boton_generar.pack()
+
+# Crear una etiqueta para mostrar el número generado
+label_numero = tk.Label(root, text="")
+label_numero.pack()
+
+# Ejecutar la aplicación
+root.mainloop()
+En este ejemplo, utilizamos la función randint del módulo random para generar un número entero aleatorio entre 1 y 100 cada vez que se hace clic en el botón "Generar número". Luego, actualizamos la etiqueta label_numero para mostrar el número generado.
+
+
+
+
+

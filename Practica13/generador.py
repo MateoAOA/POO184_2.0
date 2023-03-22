@@ -1,4 +1,4 @@
-from tkinter import messagebox
+from tkinter import messagebox, 
 import inicio
 
 def __init__(self):

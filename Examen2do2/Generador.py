@@ -1,6 +1,13 @@
 from tkinter import Tk, Button, Frame, messagebox, Label, Entry
 from Usuario import *
 import random
+
+
+def Generador ()
+
+
+
+
 #solicitar datos
 
 ventana= Tk()
@@ -34,17 +41,6 @@ iCarrera= Label(ventana,text="Escribe tu carrera:", font=("Berlin Sans FB Demi",
 iCarrera.pack()
 Carrera= Entry(ventana, font=("Berlin Sans FB Demi",20), bg="#A170D6")
 Carrera.pack()
-
-#crear objeto de la clase personaje
-matricula = Usuario(random(Nombre, Apellido_Paterno, Apellido_Materno, Fecha_Nacimento, Carrera))
-
-#usar atrivutos y metods
-matricula.setNombre("Matricula Escolar")
-
-
-print("")
-print("####### Matricula Generada #")
-matricula.generar()
 
 
 
