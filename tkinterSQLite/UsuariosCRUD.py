@@ -1,6 +1,13 @@
 from tkinter import*
 from tkinter import ttk
 import tkinter as tk
+from controladorBD import*
+
+controlador= controladorBD()
+
+def ejecutarInsert():
+    controlador.guardarUsuario(varNom.get(),varCor.get(),varCon())
+
 
 ventana = Tk()
 ventana.title("CRUD Usuarios")
