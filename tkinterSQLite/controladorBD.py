@@ -25,18 +25,21 @@ class controladorBD:
     
     def guardarUsuario(self,nom,cor,con):
         
-        
+        #llamar a la conexion
         conx= self.conexionBD()
         
+        #revisar parametros vacios
         if(nom == "" or cor=="" or con == ""):
             messagebox.showwarning("aguas!, Revisa tu formulario")
             conx.close()
         else:
+            #preparar datos de sql
             cursor= conx.cursor()
             conH= self.encriptarCon(con)
-            datos=(nom,cor,con)
+            datos=(nom,cor,conH)
             qrInser="insert into TbRegistrados(nombre,correo,contraseña) values(?,?,?)"
             
+            #proceder a insertar y cerramos la conexion
             cursor.execute(qrInser, datos)
             conx.commit()
             conx.close
@@ -45,7 +48,34 @@ class controladorBD:
     def encriptarCon(self,con):
         conplana= con
         conplana= conplana.encode()
-        sel= bcrypt.gensalt()
-    
+        sal= bcrypt.gensalt()
+        conHa=bcrypt.hashpw(conplana,sal)
+        print(conHa)
+        
+        return conHa
+        
+        
+    def consultarUsuario(self,id):
+        #1.preparar conexion
+        conx=self.conexionBD()
+            
+        #2.verificar que el ID no este vacio
+        if( id == ""):
+            messagebox.showwarning("cuidado","ID vacio escribe uno valido")
+        else:
+            #proceder a buscar
+            try:
+            #preparar lo necesario para el select
+                cursor= conx.cursor()
+                sqlSelect="select * From TbRegistrados where id=" + id
+                
+                cursor.execute(sqlSelect)
+                RSusuario= cursor.fetchall()
+                conx.close()
+                
+                return RSusuario
+                
+            except sqlite3.OperationalError:
+                print("Error Consulta")
     
     
