@@ -46,3 +46,6 @@ class controladorBD:
         conplana= con
         conplana= conplana.encode()
         sel= bcrypt.gensalt()
+    
+    
+    
