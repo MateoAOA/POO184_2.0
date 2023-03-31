@@ -3,6 +3,7 @@ from tkinter import ttk
 import tkinter as tk
 from controladorBD import*
 from tkinter import messagebox
+from tkinter.messagebox import showinfo
 
 #crear un objeto tipo controlador
 controlador= controladorBD()
@@ -22,6 +23,11 @@ def ejecutaSelectU():
     else:
         messagebox.showinfo("Usuario no registrado en la base de datos")
 
+def ejecutaConsultarU():
+    usuarios= controlador.consultarTodos()
+    tree.delete(*tree.get_children())
+    for i in usuarios:
+        tree.insert("", "end", text=i[0], values=(i[1], i[2], i[3]))
 
 
 ventana = Tk()
@@ -65,6 +71,19 @@ subBus= Label(pestana2,text="Registrado: ",fg="blue",font=("Modern",15)).pack()
 texBus=tk.Text(pestana2,height=5,width=52).pack()
 
 
+#pestaña 3 consulta usuarios
+titulo3= Label(pestana3, text="Consultar Usurios", fg="green", font=("Modern",18) ).pack()
+
+encabezado=(1,2,3,4)
+
+tree = ttk.Treeview(pestana3,columns=encabezado,show="headings")
+tree.heading(1,text="ID")
+tree.heading(2,text="Nombre")
+tree.heading(3,text="Correo")
+tree.heading(4,text="contraseña")
+tree.pack()
+
+btnConsultar= Button(pestana3, text="Consultar",command=ejecutaConsultarU).pack()
 
 
 
