@@ -18,7 +18,7 @@ def ejecutaSelectU():
         cadena=str(usu[0])+" "+ usu[1]+ " "+ usu[2]+ " "+ str(usu[3])
         
     if(rsUsuario):
-        print(cadena)
+        texBus.insert(tk.END, cadena)
     else:
         messagebox.showinfo("Usuario no registrado en la base de datos")
 
@@ -26,7 +26,7 @@ def ejecutaConsultarU():
     usuarios= controlador.consultarTodos()
     tree.delete(*tree.get_children())
     for i in usuarios:
-        tree.insert("", "end", text=i[0], values=(i[1], i[2], i[3]))
+        tree.insert("", "end", text=i[0], values=(i[0], i[1], i[2], i[3]))
 
 ventana = Tk()
 ventana.title("CRUD Usuarios")
@@ -65,7 +65,8 @@ txtid= Entry(pestana2, textvariable=varbus ).pack()
 btnBusqueda= Button(pestana2, text="Buscar",command=ejecutaSelectU).pack()
 
 subBus= Label(pestana2,text="Registrado: ",fg="blue",font=("Modern",15)).pack()
-texBus=tk.Text(pestana2,height=5,width=52).pack()
+texBus=tk.Text(pestana2,height=5,width=52)
+texBus.pack()
 
 
 #pestaña 3 consulta usuarios
@@ -84,17 +85,10 @@ btnConsultar= Button(pestana3, text="Consultar",command=ejecutaConsultarU).pack(
 
 
 
-
-
 panel.add(pestana1, text="Formulario de Usuarios")
 panel.add(pestana2, text="Buscar Usuarios")
 panel.add(pestana3, text="Consultar Usuario")
 panel.add(pestana4, text="Actualiar Usuario")
 
 
-
-
-
 ventana.mainloop()
-
-
