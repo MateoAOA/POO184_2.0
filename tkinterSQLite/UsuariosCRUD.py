@@ -10,8 +10,7 @@ controlador= controladorBD()
 
 #proceder a guadar el metodo guardarUsuario() del objeto controlador
 def ejecutarInsert():
-    controlador.guardarUsuario(varNom.get(),varCor.get(),varCon())
-
+    controlador.guardarUsuario(varNom.get(),varCor.get(),varCon.get())
 
 def ejecutaSelectU():
     rsUsuario=controlador.consultarUsuario(varbus.get())
@@ -28,7 +27,6 @@ def ejecutaConsultarU():
     tree.delete(*tree.get_children())
     for i in usuarios:
         tree.insert("", "end", text=i[0], values=(i[1], i[2], i[3]))
-
 
 ventana = Tk()
 ventana.title("CRUD Usuarios")
@@ -56,8 +54,7 @@ varCon= tk.StringVar()
 lblCon= Label(pestana1, text="contraseña: ").pack()
 txtcon= Entry(pestana1, textvariable=varCon ).pack()
 
-btnGuardar= Button(pestana1, text="Guardar Usuario").pack()
-
+btnGuardar= Button(pestana1, text="Guardar Usuario", command=ejecutarInsert).pack()
 
 #pestaña 2 Buscar Usuario
 titulo2= Label(pestana2, text="Buscar Usurios", fg="green", font=("Modern",18) ).pack()
@@ -84,7 +81,6 @@ tree.heading(4,text="contraseña")
 tree.pack()
 
 btnConsultar= Button(pestana3, text="Consultar",command=ejecutaConsultarU).pack()
-
 
 
 

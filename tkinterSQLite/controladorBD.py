@@ -15,14 +15,13 @@ class controladorBD:
     def conexionBD(self):
         
         try:
-            conexion=sqlite3.connect("https://github.com/MateoAOA/POO184_2.0/blob/eb417b4a5bca0f72e00436192b3e89ddfa3d5ec2/tkinterSQLite/bd.db")
+            conexion=sqlite3.connect("C:/Users/mateo/Documents/POO184/tkinterSQLite/DataBases.db")
             print("Conectado BD")
             return conexion
         except sqlite3.OperationalError:
             print("no se puede conectar")
     
-    
-    
+       
     def guardarUsuario(self,nom,cor,con):
         
         #llamar a la conexion
@@ -37,12 +36,12 @@ class controladorBD:
             cursor= conx.cursor()
             conH= self.encriptarCon(con)
             datos=(nom,cor,conH)
-            qrInser="insert into TBRegistrados(nombre,correo,contra) values(?,?,?)"
+            qrInser="insert into Usuarios(nombre,correo,contra) values(?,?,?)"
             
             #proceder a insertar y cerramos la conexion
             cursor.execute(qrInser, datos)
             conx.commit()
-            conx.close
+            conx.close()
             messagebox.showinfo("Exito"," Se guardo el Usuario")
             
     def encriptarCon(self,con):
@@ -67,7 +66,7 @@ class controladorBD:
             try:
             #preparar lo necesario para el select
                 cursor= conx.cursor()
-                sqlSelect="select * From TBRegistrados where id=" + id
+                sqlSelect="select * From Usuarios where id=" + id
                 
                 cursor.execute(sqlSelect)
                 RSusuario= cursor.fetchall()
@@ -84,7 +83,7 @@ class controladorBD:
         
         try:
             cursor= conx.cursor()
-            sqlSelect="select * From TBRegistrados"
+            sqlSelect="select * From Usuarios"
             
             cursor.execute(sqlSelect)
             consult= cursor.fetchall()
@@ -94,5 +93,7 @@ class controladorBD:
         
         except sqlite3.OperationalError:
                 print("Error Consulta")
+    
+   
     
     
