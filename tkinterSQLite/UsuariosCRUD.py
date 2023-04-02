@@ -43,7 +43,7 @@ pestana3=ttk.Frame(panel)
 pestana4=ttk.Frame(panel)
 
 #pestaña 1
-titulo= Label(pestana1, text="Resgistrp de Usurios", fg="blue", font=("Modern",18) ).pack()
+titulo= Label(pestana1, text="Resgistro de Usurios", fg="blue", font=("Modern",18) ).pack()
 varNom= tk.StringVar()
 lblNom= Label(pestana1, text="nombre: ").pack()
 txtNom= Entry(pestana1, textvariable=varNom ).pack()

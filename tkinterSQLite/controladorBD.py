@@ -37,7 +37,7 @@ class controladorBD:
             cursor= conx.cursor()
             conH= self.encriptarCon(con)
             datos=(nom,cor,conH)
-            qrInser="insert into TbRegistrados(nombre,correo,contraseña) values(?,?,?)"
+            qrInser="insert into TBRegistrados(nombre,correo,contra) values(?,?,?)"
             
             #proceder a insertar y cerramos la conexion
             cursor.execute(qrInser, datos)
@@ -67,7 +67,7 @@ class controladorBD:
             try:
             #preparar lo necesario para el select
                 cursor= conx.cursor()
-                sqlSelect="select * From TbRegistrados where id=" + id
+                sqlSelect="select * From TBRegistrados where id=" + id
                 
                 cursor.execute(sqlSelect)
                 RSusuario= cursor.fetchall()
@@ -84,7 +84,7 @@ class controladorBD:
         
         try:
             cursor= conx.cursor()
-            sqlSelect="select * From TbRegistrados"
+            sqlSelect="select * From TBRegistrados"
             
             cursor.execute(sqlSelect)
             consult= cursor.fetchall()
