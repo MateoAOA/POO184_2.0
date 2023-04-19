@@ -19,7 +19,6 @@ class controlador:
             
             
             
-            
     def guardarMaterial(self,mat,cad):
         
         conx= self.conexionBD()
@@ -38,6 +37,42 @@ class controlador:
             conx.commit()
             conx.close()
             messagebox.showinfo("Exito"," Se guardo el Material")        
+    
+    
+    def Actualizar():
+        # Conectar a la base de datos
+        conx= self.conexionBD()
+        cursor = conx.cursor()
+
+        # Ejecutar una consulta y obtener el resultado
+        cursor.execute('SELECT Material FROM MatConstruccion WHERE IDMat = 1')
+
+        # Cerrar la conexión a la base de datos
+        conx.close()
+
+    
+    
+    def consultarUsuario(self,id):
+        
+        conx = self.conexionBD()
+        
+        if( id == ""):
+            messagebox.showwarning("cuidado","ID vacio escribe uno valido")
+        else:
+            #proceder a buscar
+            try:
+                cursor= conx.cursor()
+                sqlSelect="select * From MatConstruccion where IDMat=" + id
+                
+                cursor.execute(sqlSelect)
+                RSmaterial= cursor.fetchall()
+                conx.close()
+                
+                return RSmaterial
+                
+            except sqlite3.OperationalError:
+                print("Error Consulta")
+    
     
     
     
